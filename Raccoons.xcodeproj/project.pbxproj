@@ -12,6 +12,9 @@
 		2C61E5D62CB1497800B9F726 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C61E5D52CB1497800B9F726 /* ViewController.swift */; };
 		2C61E5DB2CB1497900B9F726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C61E5DA2CB1497900B9F726 /* Assets.xcassets */; };
 		2C61E5DE2CB1497900B9F726 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2C61E5DD2CB1497900B9F726 /* Base */; };
+		2C6522462CB158C8009206D4 /* RaccoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522452CB158C8009206D4 /* RaccoonModel.swift */; };
+		2C6522482CB15922009206D4 /* RaccoonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522472CB15922009206D4 /* RaccoonManager.swift */; };
+		2C65224A2CB15995009206D4 /* RaccoonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522492CB15995009206D4 /* RaccoonDataManager.swift */; };
 		2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */; };
 		2CD6A4442CB1522B00337380 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4432CB1522B00337380 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +27,9 @@
 		2C61E5DA2CB1497900B9F726 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C61E5DD2CB1497900B9F726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C61E5DF2CB1497900B9F726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6522452CB158C8009206D4 /* RaccoonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonModel.swift; sourceTree = "<group>"; };
+		2C6522472CB15922009206D4 /* RaccoonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonManager.swift; sourceTree = "<group>"; };
+		2C6522492CB15995009206D4 /* RaccoonDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonDataManager.swift; sourceTree = "<group>"; };
 		2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangesSubviews.swift"; sourceTree = "<group>"; };
 		2CD6A4432CB1522B00337380 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +95,9 @@
 		2CD6A43E2CB1504C00337380 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2C6522452CB158C8009206D4 /* RaccoonModel.swift */,
+				2C6522472CB15922009206D4 /* RaccoonManager.swift */,
+				2C6522492CB15995009206D4 /* RaccoonDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -181,8 +190,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C61E5D62CB1497800B9F726 /* ViewController.swift in Sources */,
+				2C6522482CB15922009206D4 /* RaccoonManager.swift in Sources */,
 				2C61E5D22CB1497800B9F726 /* AppDelegate.swift in Sources */,
 				2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */,
+				2C6522462CB158C8009206D4 /* RaccoonModel.swift in Sources */,
+				2C65224A2CB15995009206D4 /* RaccoonDataManager.swift in Sources */,
 				2C61E5D42CB1497800B9F726 /* SceneDelegate.swift in Sources */,
 				2CD6A4442CB1522B00337380 /* CustomButton.swift in Sources */,
 			);

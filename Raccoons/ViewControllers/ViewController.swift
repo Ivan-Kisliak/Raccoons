@@ -8,8 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+//MARK: - Property services
+        private let raccoonManager = RaccoonManager()
+        private lazy var raccoonDataManager = RaccoonDataManager(raccoons: raccoonManager.getRaccoons())
 
-    //MARK: - Property UI
+//MARK: - Property UI
         private let imageView = UIImageView()
         private let textLabel = UILabel()
         private let lastButton = CustomButton(title: "Last",
@@ -26,7 +30,7 @@ class ViewController: UIViewController {
         private let horizintalStackView = UIStackView()
         private let verticalMainStackView = UIStackView()
 
-    //MARK: - Life cycle
+//MARK: - Life cycle
         override func viewDidLoad() {
             super.viewDidLoad()
             setupView()
@@ -35,32 +39,38 @@ class ViewController: UIViewController {
         }
     }
 
-    //MARK: - Actions
+//MARK: - Actions
     private extension ViewController {
         func addAction() {
             let lastButtonAction = UIAction { _ in
-                print("last")
+                let lastRaccoon = self.raccoonDataManager.getLastRaccoon()
+                self.imageView.image = UIImage(named: lastRaccoon.imageName)
+                self.textLabel.text = lastRaccoon.text
             }
             lastButton.addAction(lastButtonAction, for: .touchUpInside)
             
             let nextButtonAction = UIAction { _ in
-                
-                print("next")
+                let nextRaccoon = self.raccoonDataManager.getNextRaccoon()
+                self.imageView.image = UIImage(named: nextRaccoon.imageName)
+                self.textLabel.text = nextRaccoon.text
             }
             nextButton.addAction(nextButtonAction, for: .touchUpInside)
             
             let firstButtonAction = UIAction { _ in
-                print("first")
+                let firstRaccoon = self.raccoonDataManager.getFirstRaccoon()
+                self.imageView.image = UIImage(named: firstRaccoon.imageName)
+                self.textLabel.text = firstRaccoon.text
             }
             firstButton.addAction(firstButtonAction, for: .touchUpInside)
         }
     }
 
-    //MARK: - Setup View
+//MARK: - Setup View
     private extension ViewController {
 
         func setupView() {
             view.backgroundColor = .white
+            
             setupImageView()
             setupTextLabel()
             setupHorizontalStackView()
@@ -71,15 +81,17 @@ class ViewController: UIViewController {
         }
         
         func setupImageView() {
-            imageView.image = UIImage(named: "raccoon1")
+            let raccoon = raccoonDataManager.getCurrentRaccoon()
+            imageView.image = UIImage(named: raccoon.imageName)
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = Constant.cornerRadius
+            imageView.layer.cornerRadius = 20
         }
         
         func setupTextLabel() {
-            textLabel.text = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text "
-            textLabel.font = .systemFont(ofSize: Constant.font18)
+            let raccoon = raccoonDataManager.getCurrentRaccoon()
+            textLabel.text = raccoon.text
+            textLabel.font = .systemFont(ofSize: 18)
             textLabel.numberOfLines = 3
         }
         
@@ -104,7 +116,7 @@ class ViewController: UIViewController {
         }
     }
 
-    //MARK: - Setup Layout
+//MARK: - Setup Layout
     private extension ViewController {
         
         func setupLayout() {
@@ -125,16 +137,5 @@ class ViewController: UIViewController {
                 firstButton.widthAnchor.constraint(equalTo: verticalMainStackView.widthAnchor, multiplier: 0.45)
             ])
         }
-    }
-
-//MARK: - Nested Types
-
-    extension ViewController {
-
-        enum Constant {
-            static let cornerRadius: CGFloat = 20
-            static let font18: CGFloat = 18
-        }
-
 }
 
