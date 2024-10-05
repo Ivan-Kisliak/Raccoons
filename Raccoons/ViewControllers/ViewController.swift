@@ -9,11 +9,132 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+    //MARK: - Property UI
+        private let imageView = UIImageView()
+        private let textLabel = UILabel()
+        private let lastButton = CustomButton(title: "Last",
+                                              titleColor: .white,
+                                              bgColor: .systemCyan,
+                                              isShadow: true)
+        private let nextButton = CustomButton(title: "Next",
+                                              titleColor: .black,
+                                              bgColor: .white,
+                                              isShadow: true)
+        private let firstButton = CustomButton(title: "First",
+                                               titleColor: .white,
+                                               bgColor: .systemRed)
+        private let horizintalStackView = UIStackView()
+        private let verticalMainStackView = UIStackView()
+
+    //MARK: - Life cycle
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            setupView()
+            addAction()
+            setupLayout()
+        }
     }
 
+    //MARK: - Actions
+    private extension ViewController {
+        func addAction() {
+            let lastButtonAction = UIAction { _ in
+                print("last")
+            }
+            lastButton.addAction(lastButtonAction, for: .touchUpInside)
+            
+            let nextButtonAction = UIAction { _ in
+                
+                print("next")
+            }
+            nextButton.addAction(nextButtonAction, for: .touchUpInside)
+            
+            let firstButtonAction = UIAction { _ in
+                print("first")
+            }
+            firstButton.addAction(firstButtonAction, for: .touchUpInside)
+        }
+    }
+
+    //MARK: - Setup View
+    private extension ViewController {
+
+        func setupView() {
+            view.backgroundColor = .white
+            setupImageView()
+            setupTextLabel()
+            setupHorizontalStackView()
+            setupVerticalMainStackView()
+            
+            view.addSubview(verticalMainStackView)
+            view.addSubview(firstButton)
+        }
+        
+        func setupImageView() {
+            imageView.image = UIImage(named: "raccoon1")
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = Constant.cornerRadius
+        }
+        
+        func setupTextLabel() {
+            textLabel.text = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text "
+            textLabel.font = .systemFont(ofSize: Constant.font18)
+            textLabel.numberOfLines = 3
+        }
+        
+        func setupHorizontalStackView() {
+            horizintalStackView.axis = .horizontal
+            horizintalStackView.distribution = .fillEqually
+            horizintalStackView.alignment = .fill
+            horizintalStackView.spacing = 30
+            
+            horizintalStackView.addArrangesSubviews([lastButton, nextButton])
+        }
+        
+        func setupVerticalMainStackView() {
+            verticalMainStackView.axis = .vertical
+            verticalMainStackView.distribution = .equalSpacing
+            verticalMainStackView.alignment = .fill
+            verticalMainStackView.spacing = 50
+            
+            verticalMainStackView.addArrangesSubviews([imageView,
+                                                      textLabel,
+                                                      horizintalStackView])
+        }
+    }
+
+    //MARK: - Setup Layout
+    private extension ViewController {
+        
+        func setupLayout() {
+            
+            verticalMainStackView.translatesAutoresizingMaskIntoConstraints = false
+            firstButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                
+                verticalMainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+                verticalMainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                verticalMainStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
+
+                imageView.heightAnchor.constraint(equalTo: verticalMainStackView.widthAnchor),
+                
+                firstButton.topAnchor.constraint(equalTo: verticalMainStackView.bottomAnchor, constant: 120),
+                firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                firstButton.widthAnchor.constraint(equalTo: verticalMainStackView.widthAnchor, multiplier: 0.45)
+            ])
+        }
+    }
+
+//MARK: - Nested Types
+
+    extension ViewController {
+
+        enum Constant {
+            static let cornerRadius: CGFloat = 20
+            static let font18: CGFloat = 18
+        }
 
 }
 

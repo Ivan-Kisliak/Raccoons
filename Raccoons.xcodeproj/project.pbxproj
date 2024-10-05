@@ -12,6 +12,8 @@
 		2C61E5D62CB1497800B9F726 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C61E5D52CB1497800B9F726 /* ViewController.swift */; };
 		2C61E5DB2CB1497900B9F726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C61E5DA2CB1497900B9F726 /* Assets.xcassets */; };
 		2C61E5DE2CB1497900B9F726 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2C61E5DD2CB1497900B9F726 /* Base */; };
+		2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */; };
+		2CD6A4442CB1522B00337380 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4432CB1522B00337380 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		2C61E5DA2CB1497900B9F726 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C61E5DD2CB1497900B9F726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C61E5DF2CB1497900B9F726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangesSubviews.swift"; sourceTree = "<group>"; };
+		2CD6A4432CB1522B00337380 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		2CD6A43D2CB1502800337380 /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
+				2CD6A4432CB1522B00337380 /* CustomButton.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 		2CD6A4402CB150F400337380 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -176,7 +182,9 @@
 			files = (
 				2C61E5D62CB1497800B9F726 /* ViewController.swift in Sources */,
 				2C61E5D22CB1497800B9F726 /* AppDelegate.swift in Sources */,
+				2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */,
 				2C61E5D42CB1497800B9F726 /* SceneDelegate.swift in Sources */,
+				2CD6A4442CB1522B00337380 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
