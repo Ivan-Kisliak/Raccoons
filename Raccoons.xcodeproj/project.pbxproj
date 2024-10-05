@@ -56,12 +56,52 @@
 			children = (
 				2C61E5D12CB1497800B9F726 /* AppDelegate.swift */,
 				2C61E5D32CB1497800B9F726 /* SceneDelegate.swift */,
-				2C61E5D52CB1497800B9F726 /* ViewController.swift */,
-				2C61E5DA2CB1497900B9F726 /* Assets.xcassets */,
-				2C61E5DC2CB1497900B9F726 /* LaunchScreen.storyboard */,
+				2CD6A43C2CB14FFF00337380 /* ViewControllers */,
+				2CD6A43D2CB1502800337380 /* CustomElements */,
+				2CD6A43E2CB1504C00337380 /* Services */,
+				2CD6A43F2CB1506400337380 /* Resources */,
+				2CD6A4402CB150F400337380 /* Extensions */,
 				2C61E5DF2CB1497900B9F726 /* Info.plist */,
 			);
 			path = Raccoons;
+			sourceTree = "<group>";
+		};
+		2CD6A43C2CB14FFF00337380 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C61E5D52CB1497800B9F726 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2CD6A43D2CB1502800337380 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		2CD6A43E2CB1504C00337380 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2CD6A43F2CB1506400337380 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C61E5DC2CB1497900B9F726 /* LaunchScreen.storyboard */,
+				2C61E5DA2CB1497900B9F726 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2CD6A4402CB150F400337380 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
