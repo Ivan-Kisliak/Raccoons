@@ -10,8 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     
 //MARK: - Property services
-        private let raccoonManager = RaccoonManager()
-        private lazy var raccoonDataManager = RaccoonDataManager(raccoons: raccoonManager.getRaccoons())
+    
+    var raccoonManager: IRaccoonManageable?
+    var raccoonDataManager: IRaccoonDataManageable?
 
 //MARK: - Property UI
         private let imageView = UIImageView()
@@ -43,23 +44,26 @@ class ViewController: UIViewController {
     private extension ViewController {
         func addAction() {
             let lastButtonAction = UIAction { _ in
-                let lastRaccoon = self.raccoonDataManager.getLastRaccoon()
-                self.imageView.image = UIImage(named: lastRaccoon.imageName)
-                self.textLabel.text = lastRaccoon.text
+                if let lastRaccoon = self.raccoonDataManager?.getLastRaccoon() {
+                    self.imageView.image = UIImage(named: lastRaccoon.imageName)
+                    self.textLabel.text = lastRaccoon.text
+                }
             }
             lastButton.addAction(lastButtonAction, for: .touchUpInside)
             
             let nextButtonAction = UIAction { _ in
-                let nextRaccoon = self.raccoonDataManager.getNextRaccoon()
-                self.imageView.image = UIImage(named: nextRaccoon.imageName)
-                self.textLabel.text = nextRaccoon.text
+                if let nextRaccoon = self.raccoonDataManager?.getNextRaccoon() {
+                    self.imageView.image = UIImage(named: nextRaccoon.imageName)
+                    self.textLabel.text = nextRaccoon.text
+                }
             }
             nextButton.addAction(nextButtonAction, for: .touchUpInside)
             
             let firstButtonAction = UIAction { _ in
-                let firstRaccoon = self.raccoonDataManager.getFirstRaccoon()
-                self.imageView.image = UIImage(named: firstRaccoon.imageName)
-                self.textLabel.text = firstRaccoon.text
+                if let firstRaccoon = self.raccoonDataManager?.getFirstRaccoon() {
+                    self.imageView.image = UIImage(named: firstRaccoon.imageName)
+                    self.textLabel.text = firstRaccoon.text
+                }
             }
             firstButton.addAction(firstButtonAction, for: .touchUpInside)
         }
@@ -81,16 +85,17 @@ class ViewController: UIViewController {
         }
         
         func setupImageView() {
-            let raccoon = raccoonDataManager.getCurrentRaccoon()
-            imageView.image = UIImage(named: raccoon.imageName)
+            if let raccoon = raccoonDataManager?.getCurrentRaccoon() {
+                imageView.image = UIImage(named: raccoon.imageName)
+            }
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 20
         }
         
         func setupTextLabel() {
-            let raccoon = raccoonDataManager.getCurrentRaccoon()
-            textLabel.text = raccoon.text
+            let raccoon = raccoonDataManager?.getCurrentRaccoon()
+            textLabel.text = raccoon?.text
             textLabel.font = .systemFont(ofSize: 18)
             textLabel.numberOfLines = 3
         }

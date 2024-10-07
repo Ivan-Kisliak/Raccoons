@@ -7,20 +7,22 @@
 
 import Foundation
 
-class RaccoonManager {
+protocol IRaccoonManageable {
+    func getRaccoons() -> [RaccoonModel]
+}
+
+class RaccoonManager: IRaccoonManageable {
     func getRaccoons() -> [RaccoonModel] {
-        return [
-            RaccoonModel(imageName: ImageName.raccoonOne.rawValue,
-                         text: Text.raccoonOne.rawValue),
-            RaccoonModel(imageName: ImageName.raccoonTwo.rawValue,
-                         text: Text.raccoonTwo.rawValue),
-            RaccoonModel(imageName: ImageName.raccoonThree.rawValue,
-                         text: Text.raccoonThree.rawValue),
-            RaccoonModel(imageName: ImageName.raccoonFour.rawValue,
-                         text: Text.raccoonFour.rawValue),
-            RaccoonModel(imageName: ImageName.raccoonFive.rawValue,
-                         text: Text.raccoonFive.rawValue)
-        ]
+        [RaccoonModel(imageName: ImageName.raccoonOne.rawValue,
+                      text: Text.raccoonOne.rawValue),
+         RaccoonModel(imageName: ImageName.raccoonTwo.rawValue,
+                      text: Text.raccoonTwo.rawValue),
+         RaccoonModel(imageName: ImageName.raccoonThree.rawValue,
+                      text: Text.raccoonThree.rawValue),
+         RaccoonModel(imageName: ImageName.raccoonFour.rawValue,
+                      text: Text.raccoonFour.rawValue),
+         RaccoonModel(imageName: ImageName.raccoonFive.rawValue,
+                      text: Text.raccoonFive.rawValue)]
     }
 }
 
@@ -49,7 +51,7 @@ Raccoon three some text Raccoon three some text Raccoon three some text
 Raccoon four some text Raccoon four some text Raccoon four some text
 """
         case raccoonFive = """
-Raccoon five some text Raccoon five some text Raccoon five some text 
+Raccoon five some text Raccoon five some text Raccoon five some text
 """
     }
 }

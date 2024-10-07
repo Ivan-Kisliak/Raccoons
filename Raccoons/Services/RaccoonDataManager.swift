@@ -7,11 +7,19 @@
 
 import Foundation
 
-class RaccoonDataManager {
+protocol IRaccoonDataManageable {
+    init(raccoons: [RaccoonModel])
+    func getCurrentRaccoon() -> RaccoonModel
+    func getNextRaccoon() -> RaccoonModel
+    func getLastRaccoon() -> RaccoonModel
+    func getFirstRaccoon() -> RaccoonModel
+}
+
+class RaccoonDataManager: IRaccoonDataManageable {
     private var raccoons: [RaccoonModel] = []
     private var currentIndex = 0
     
-    init(raccoons: [RaccoonModel]) {
+    required init(raccoons: [RaccoonModel]) {
         self.raccoons = raccoons
     }
     
