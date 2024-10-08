@@ -13,16 +13,16 @@ protocol IRaccoonManageable {
 
 class RaccoonManager: IRaccoonManageable {
     func getRaccoons() -> [RaccoonModel] {
-        [RaccoonModel(imageName: ImageName.raccoonOne.rawValue,
-                      text: Text.raccoonOne.rawValue),
-         RaccoonModel(imageName: ImageName.raccoonTwo.rawValue,
-                      text: Text.raccoonTwo.rawValue),
-         RaccoonModel(imageName: ImageName.raccoonThree.rawValue,
+        [RaccoonModel(imageName: ImageName.raccoonThree.rawValue,
                       text: Text.raccoonThree.rawValue),
          RaccoonModel(imageName: ImageName.raccoonFour.rawValue,
                       text: Text.raccoonFour.rawValue),
+         RaccoonModel(imageName: ImageName.raccoonOne.rawValue,
+                      text: Text.raccoonOne.rawValue),
          RaccoonModel(imageName: ImageName.raccoonFive.rawValue,
-                      text: Text.raccoonFive.rawValue)]
+                      text: Text.raccoonFive.rawValue),
+         RaccoonModel(imageName: ImageName.raccoonTwo.rawValue,
+                      text: Text.raccoonTwo.rawValue)]
     }
 }
 
@@ -38,20 +38,10 @@ private extension RaccoonManager {
     }
     
     enum Text: String {
-        case raccoonOne = """
-Raccoon one some text Raccoon one some text Raccoon one some text
-"""
-        case raccoonTwo = """
-Raccoon two some text Raccoon two some text Raccoon two some text
-"""
-        case raccoonThree = """
-Raccoon three some text Raccoon three some text Raccoon three some text
-"""
-        case raccoonFour = """
-Raccoon four some text Raccoon four some text Raccoon four some text
-"""
-        case raccoonFive = """
-Raccoon five some text Raccoon five some text Raccoon five some text
-"""
+        case raccoonOne = "Raccoon one some text"
+        case raccoonTwo = "Raccoon two some text"
+        case raccoonThree = "Raccoon three some text"
+        case raccoonFour = "Raccoon four some text"
+        case raccoonFive = "Raccoon five some text"
     }
 }

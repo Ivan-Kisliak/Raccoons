@@ -19,8 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let raccoonDataManager = RaccoonDataManager(raccoons: raccoonManager.getRaccoons())
         let viewController = ViewController()
         
-        viewController.raccoonManager = raccoonManager
         viewController.raccoonDataManager = raccoonDataManager
+        
+        raccoonDataManager.sortRaccoonImageName()
+        raccoonDataManager.printInfo()
         
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

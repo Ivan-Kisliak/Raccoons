@@ -45,4 +45,15 @@ class RaccoonDataManager: IRaccoonDataManageable {
         currentIndex = 0
         return getCurrentRaccoon()
     }
+    
+    func sortRaccoonImageName() {
+        raccoons.sort(by: <)
+    }
+    
+    func printInfo() {
+        raccoons.forEach { print($0) }
+    }
 }
+
+
+
