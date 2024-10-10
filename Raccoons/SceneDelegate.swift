@@ -16,13 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let raccoonManager = RaccoonManager()
-        let raccoonDataManager = RaccoonDataManager(raccoons: raccoonManager.getRaccoons())
+        let raccoonsSorted = raccoonManager.getRaccoons().sorted()
+        raccoonsSorted.forEach { print($0) }
+        
+        let raccoonDataManager = RaccoonDataManager(
+            raccoons: raccoonsSorted
+        )
         let viewController = ViewController()
         
         viewController.raccoonDataManager = raccoonDataManager
-        
-        raccoonDataManager.sortRaccoonImageName()
-        raccoonDataManager.printInfo()
         
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
