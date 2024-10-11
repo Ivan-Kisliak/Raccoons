@@ -7,19 +7,25 @@
 
 import UIKit
 
+protocol ICustomButtonDelegate {
+    func pressedButton(_ button: UIButton)
+}
+
 class CustomButton: UIButton {
     
-//MARK: - Intitializers
+    var delegate: ICustomButtonDelegate?
+    
+    //MARK: - Intitializers
     init(title: String,
          titleColor: UIColor,
          bgColor: UIColor,
          isShadow: Bool = false) {
         super.init(frame: .zero)
-        
-        setupView(title: title,
-                  titleColor: titleColor,
-                  bgColor: bgColor,
-                  isShadow: isShadow)
+        setupButton(title: title,
+                    titleColor: titleColor,
+                    bgColor: bgColor,
+                    isShadow: isShadow)
+        addAction()
     }
     
     @available(*, unavailable)
@@ -27,7 +33,7 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-//MARK: - Life cycle
+    //MARK: - Life cycle
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -39,10 +45,17 @@ class CustomButton: UIButton {
 //MARK: - Setup View
 private extension CustomButton {
     
-    func setupView(title: String,
-                   titleColor: UIColor,
-                   bgColor: UIColor,
-                   isShadow: Bool) {
+    private func addAction() {
+        let action = UIAction { _ in
+            self.delegate?.pressedButton(self)
+        }
+        addAction(action, for: .touchUpInside)
+    }
+    
+    private func setupButton(title: String,
+                             titleColor: UIColor,
+                             bgColor: UIColor,
+                             isShadow: Bool) {
         setTitle(title, for: .normal)
         setTitleColor(titleColor, for: .normal)
         backgroundColor = bgColor

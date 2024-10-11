@@ -32,38 +32,19 @@ class ViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupDelegate()
         setupView()
-        addAction()
         setupLayout()
     }
 }
 
-//MARK: - Actions
+//MARK: - Setup Delegate
 private extension ViewController {
-    func addAction() {
-        let lastButtonAction = UIAction { _ in
-            if let lastRaccoon = self.raccoonDataManager?.getLastRaccoon() {
-                self.imageView.image = UIImage(named: lastRaccoon.imageName)
-                self.textLabel.text = lastRaccoon.text
-            }
-        }
-        lastButton.addAction(lastButtonAction, for: .touchUpInside)
-        
-        let nextButtonAction = UIAction { _ in
-            if let nextRaccoon = self.raccoonDataManager?.getNextRaccoon() {
-                self.imageView.image = UIImage(named: nextRaccoon.imageName)
-                self.textLabel.text = nextRaccoon.text
-            }
-        }
-        nextButton.addAction(nextButtonAction, for: .touchUpInside)
-        
-        let firstButtonAction = UIAction { _ in
-            if let firstRaccoon = self.raccoonDataManager?.getFirstRaccoon() {
-                self.imageView.image = UIImage(named: firstRaccoon.imageName)
-                self.textLabel.text = firstRaccoon.text
-            }
-        }
-        firstButton.addAction(firstButtonAction, for: .touchUpInside)
+    func setupDelegate() {
+        lastButton.delegate = self
+        nextButton.delegate = self
+        firstButton.delegate = self
     }
 }
 
@@ -138,6 +119,32 @@ private extension ViewController {
             firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             firstButton.widthAnchor.constraint(equalTo: verticalMainStackView.widthAnchor, multiplier: 0.45)
         ])
+    }
+}
+
+//MARK: -ICustomButtonDelegate
+extension ViewController: ICustomButtonDelegate {
+    func pressedButton(_ button: UIButton) {
+        switch button {
+        case lastButton:
+            if let lastRaccoon = self.raccoonDataManager?.getLastRaccoon() {
+                self.imageView.image = UIImage(named: lastRaccoon.imageName)
+                self.textLabel.text = lastRaccoon.text
+            }
+        case nextButton:
+            if let nextRaccoon = self.raccoonDataManager?.getNextRaccoon() {
+                self.imageView.image = UIImage(named: nextRaccoon.imageName)
+                self.textLabel.text = nextRaccoon.text
+            }
+        case firstButton:
+            if let firstRaccoon = self.raccoonDataManager?.getFirstRaccoon() {
+                self.imageView.image = UIImage(named: firstRaccoon.imageName)
+                self.textLabel.text = firstRaccoon.text
+            }
+        default:
+            print("Error")
+            break
+        }
     }
 }
 
