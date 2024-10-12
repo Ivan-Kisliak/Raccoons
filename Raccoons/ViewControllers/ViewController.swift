@@ -124,23 +124,21 @@ private extension ViewController {
 
 //MARK: -ICustomButtonDelegate
 extension ViewController: ICustomButtonDelegate {
+    private func getRaccoonModel(_ model: RaccoonModel?) {
+        if let model {
+            imageView.image = UIImage(named: model.imageName)
+            textLabel.text = model.text
+        }
+    }
+    
     func pressedButton(_ button: UIButton) {
         switch button {
-        case lastButton:
-            if let lastRaccoon = self.raccoonDataManager?.getLastRaccoon() {
-                self.imageView.image = UIImage(named: lastRaccoon.imageName)
-                self.textLabel.text = lastRaccoon.text
-            }
+        case lastButton: 
+            getRaccoonModel(raccoonDataManager?.getLastRaccoon())
         case nextButton:
-            if let nextRaccoon = self.raccoonDataManager?.getNextRaccoon() {
-                self.imageView.image = UIImage(named: nextRaccoon.imageName)
-                self.textLabel.text = nextRaccoon.text
-            }
+            getRaccoonModel(raccoonDataManager?.getNextRaccoon())
         case firstButton:
-            if let firstRaccoon = self.raccoonDataManager?.getFirstRaccoon() {
-                self.imageView.image = UIImage(named: firstRaccoon.imageName)
-                self.textLabel.text = firstRaccoon.text
-            }
+            getRaccoonModel(raccoonDataManager?.getFirstRaccoon())
         default:
             print("Error")
             break
