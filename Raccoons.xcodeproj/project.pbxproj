@@ -15,6 +15,7 @@
 		2C6522462CB158C8009206D4 /* RaccoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522452CB158C8009206D4 /* RaccoonModel.swift */; };
 		2C6522482CB15922009206D4 /* RaccoonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522472CB15922009206D4 /* RaccoonManager.swift */; };
 		2C65224A2CB15995009206D4 /* RaccoonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522492CB15995009206D4 /* RaccoonDataManager.swift */; };
+		2C72193D2CBE6A6F00E3BBED /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72193C2CBE6A6F00E3BBED /* UIView+Extensions.swift */; };
 		2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */; };
 		2CD6A4442CB1522B00337380 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4432CB1522B00337380 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		2C6522452CB158C8009206D4 /* RaccoonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonModel.swift; sourceTree = "<group>"; };
 		2C6522472CB15922009206D4 /* RaccoonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonManager.swift; sourceTree = "<group>"; };
 		2C6522492CB15995009206D4 /* RaccoonDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonDataManager.swift; sourceTree = "<group>"; };
+		2C72193C2CBE6A6F00E3BBED /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangesSubviews.swift"; sourceTree = "<group>"; };
 		2CD6A4432CB1522B00337380 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */,
+				2C72193C2CBE6A6F00E3BBED /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				2C61E5D62CB1497800B9F726 /* ViewController.swift in Sources */,
 				2C6522482CB15922009206D4 /* RaccoonManager.swift in Sources */,
 				2C61E5D22CB1497800B9F726 /* AppDelegate.swift in Sources */,
+				2C72193D2CBE6A6F00E3BBED /* UIView+Extensions.swift in Sources */,
 				2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */,
 				2C6522462CB158C8009206D4 /* RaccoonModel.swift in Sources */,
 				2C65224A2CB15995009206D4 /* RaccoonDataManager.swift in Sources */,

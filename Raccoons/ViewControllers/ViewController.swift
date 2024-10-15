@@ -33,18 +33,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupDelegate()
+        setDelegate()
+        setNameInstance()
         setupView()
         setupLayout()
+        
+        print("UIButttons count: \(view.getCountButtons(lastButton, nextButton, firstButton))")
+        view.printNameCustomButtons(lastButton, nextButton, firstButton)
     }
 }
 
-//MARK: - Setup Delegate
+//MARK: - Set Delegate
 private extension ViewController {
-    func setupDelegate() {
+    func setDelegate() {
         lastButton.delegate = self
         nextButton.delegate = self
         firstButton.delegate = self
+    }
+}
+
+//MARK: - Set name instance custom elements
+private extension ViewController {
+    func setNameInstance() {
+        lastButton.nameInstance = "LastButton"
+        nextButton.nameInstance = "NextButton"
+        firstButton.nameInstance = "FirstButton"
     }
 }
 
@@ -101,7 +114,6 @@ private extension ViewController {
 
 //MARK: - Setup Layout
 private extension ViewController {
-    
     func setupLayout() {
         
         verticalMainStackView.translatesAutoresizingMaskIntoConstraints = false
