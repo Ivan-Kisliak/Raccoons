@@ -41,6 +41,18 @@ class ViewController: UIViewController {
         print("UIButttons count: \(view.getCountButtons(lastButton, nextButton, firstButton))")
         view.printNameCustomButtons(lastButton, nextButton, firstButton)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        guard let touch = touches.first else { return }
+        
+        let touchLocation = touch.location(in: imageView)
+        
+        if imageView.bounds.contains(touchLocation) {
+            textLabel.text = "Image name: \( raccoonDataManager?.getCurrentRaccoon().imageName ?? "nil")"
+        }
+    }
 }
 
 //MARK: - Set Delegate
@@ -82,6 +94,7 @@ private extension ViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 20
+        imageView.isUserInteractionEnabled = true
     }
     
     func setupTextLabel() {
@@ -115,12 +128,10 @@ private extension ViewController {
 //MARK: - Setup Layout
 private extension ViewController {
     func setupLayout() {
-        
         verticalMainStackView.translatesAutoresizingMaskIntoConstraints = false
         firstButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            
             verticalMainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             verticalMainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             verticalMainStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
@@ -148,7 +159,7 @@ private extension ViewController {
 extension ViewController: ICustomButtonDelegate {
     func pressedButton(_ button: UIButton) {
         switch button {
-        case lastButton: 
+        case lastButton:
             setImageAndText(model: raccoonDataManager?.getLastRaccoon())
         case nextButton:
             setImageAndText(model: raccoonDataManager?.getNextRaccoon())
