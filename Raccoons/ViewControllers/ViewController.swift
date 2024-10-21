@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     private let firstButton = CustomButton(title: "First",
                                            titleColor: .white,
                                            bgColor: .systemRed)
+    private let nameImageLabel = UILabel()
     private let horizintalStackView = UIStackView()
     private let verticalMainStackView = UIStackView()
     
@@ -50,7 +51,9 @@ class ViewController: UIViewController {
         let touchLocation = touch.location(in: imageView)
         
         if imageView.bounds.contains(touchLocation) {
-            textLabel.text = "Image name: \( raccoonDataManager?.getCurrentRaccoon().imageName ?? "nil")"
+            textLabel.text = "Image name: \(setImageNameText())"
+            nameImageLabel.isHidden = false
+            nameImageLabel.text = "Image name: \(setImageNameText())"
         }
     }
 }
@@ -80,13 +83,15 @@ private extension ViewController {
         
         setupImageView()
         setupTextLabel()
+        setupNameImageLabel()
         setupHorizontalStackView()
         setupVerticalMainStackView()
         
         view.addSubview(verticalMainStackView)
         view.addSubview(firstButton)
+        view.addSubview(nameImageLabel)
     }
-    
+
     func setupImageView() {
         if let raccoon = raccoonDataManager?.getCurrentRaccoon() {
             imageView.image = UIImage(named: raccoon.imageName)
@@ -100,8 +105,13 @@ private extension ViewController {
     func setupTextLabel() {
         let raccoon = raccoonDataManager?.getCurrentRaccoon()
         textLabel.text = raccoon?.text
-        textLabel.font = .systemFont(ofSize: 18)
+        textLabel.font = .systemFont(ofSize: 20)
         textLabel.numberOfLines = 3
+    }
+    
+    func setupNameImageLabel() {
+        nameImageLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        nameImageLabel.textColor = .systemBlue
     }
     
     func setupHorizontalStackView() {
@@ -130,23 +140,31 @@ private extension ViewController {
     func setupLayout() {
         verticalMainStackView.translatesAutoresizingMaskIntoConstraints = false
         firstButton.translatesAutoresizingMaskIntoConstraints = false
+        nameImageLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            verticalMainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            verticalMainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             verticalMainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             verticalMainStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
             
             imageView.heightAnchor.constraint(equalTo: verticalMainStackView.widthAnchor),
             
-            firstButton.topAnchor.constraint(equalTo: verticalMainStackView.bottomAnchor, constant: 120),
+            firstButton.topAnchor.constraint(equalTo: verticalMainStackView.bottomAnchor, constant: 100),
             firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            firstButton.widthAnchor.constraint(equalTo: verticalMainStackView.widthAnchor, multiplier: 0.45)
+            firstButton.widthAnchor.constraint(equalTo: verticalMainStackView.widthAnchor, multiplier: 0.45),
+            
+            nameImageLabel.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 50),
+            nameImageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
 
 //MARK: - Private methods
 private extension ViewController {
+    func setImageNameText() -> String {
+        raccoonDataManager?.getCurrentRaccoon().imageName ?? "nil"
+    }
+    
     func setImageAndText(model: RaccoonModel?) {
         if let model {
             imageView.image = UIImage(named: model.imageName)
@@ -161,10 +179,13 @@ extension ViewController: ICustomButtonDelegate {
         switch button {
         case lastButton:
             setImageAndText(model: raccoonDataManager?.getLastRaccoon())
+            nameImageLabel.isHidden = true
         case nextButton:
             setImageAndText(model: raccoonDataManager?.getNextRaccoon())
+            nameImageLabel.isHidden = true
         case firstButton:
             setImageAndText(model: raccoonDataManager?.getFirstRaccoon())
+            nameImageLabel.isHidden = true
         default:
             print("Error")
             break
