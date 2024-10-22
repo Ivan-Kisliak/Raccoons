@@ -179,17 +179,15 @@ extension ViewController: ICustomButtonDelegate {
         switch button {
         case lastButton:
             setImageAndText(model: raccoonDataManager?.getLastRaccoon())
-            nameImageLabel.isHidden = true
         case nextButton:
             setImageAndText(model: raccoonDataManager?.getNextRaccoon())
-            nameImageLabel.isHidden = true
         case firstButton:
             setImageAndText(model: raccoonDataManager?.getFirstRaccoon())
-            nameImageLabel.isHidden = true
         default:
             print("Error")
             break
         }
+        nameImageLabel.isHidden = true
     }
 }
 
