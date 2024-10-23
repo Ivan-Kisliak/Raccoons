@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     //MARK: - Property services
-    
     var raccoonDataManager: IRaccoonDataManageable?
     
     //MARK: - Property UI

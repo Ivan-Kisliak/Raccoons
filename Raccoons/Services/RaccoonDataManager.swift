@@ -13,6 +13,7 @@ protocol IRaccoonDataManageable {
     func getNextRaccoon() -> RaccoonModel
     func getLastRaccoon() -> RaccoonModel
     func getFirstRaccoon() -> RaccoonModel
+    func findRaccoon(imageName: String) -> RaccoonModel?
 }
 
 class RaccoonDataManager: IRaccoonDataManageable {
@@ -44,6 +45,10 @@ class RaccoonDataManager: IRaccoonDataManageable {
     func getFirstRaccoon() -> RaccoonModel {
         currentIndex = 0
         return getCurrentRaccoon()
+    }
+    
+    func findRaccoon(imageName: String) -> RaccoonModel? {
+        raccoons.first { $0.imageName == imageName }
     }
 }
 
