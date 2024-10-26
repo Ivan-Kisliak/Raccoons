@@ -30,11 +30,11 @@ class RaccoonManager: IRaccoonManageable {
 
 private extension RaccoonManager {
     enum ImageName: String {
-        case raccoonOne = "Raccoon1"
-        case raccoonTwo = "Raccoon2"
-        case raccoonThree = "Raccoon3"
-        case raccoonFour = "Raccoon4"
-        case raccoonFive = "Raccoon5"
+        case raccoonOne = "raccoon1"
+        case raccoonTwo = "raccoon2"
+        case raccoonThree = "raccoon3"
+        case raccoonFour = "raccoon4"
+        case raccoonFive = "raccoon5"
     }
     
     enum Text: String {

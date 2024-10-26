@@ -31,7 +31,7 @@ class FindImageViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        pressedButton(checkButton)
+        getActionButton()
     }
 }
 
@@ -121,9 +121,25 @@ private extension FindImageViewController {
 //MARK: - ICustomButtonDelegate
 extension FindImageViewController: ICustomButtonDelegate {
     func pressedButton(_ button: UIButton) {
+        getActionButton()
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension FindImageViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        getActionButton()
+        
+        return true
+    }
+}
+
+//MARK: - Private Methods
+private extension FindImageViewController {
+    func getActionButton() {
         view.endEditing(true)
         
-        let text = textField.text ?? ""
+        let text = textField.text?.lowercased() ?? ""
         
         guard let findRaccoon = raccoonDataManager?.findRaccoon(imageName: text) else {
             titleLabel.text = "Такой картинки нет"
@@ -139,14 +155,5 @@ extension FindImageViewController: ICustomButtonDelegate {
         textLabel.isHidden = false
         textLabel.text = findRaccoon.text
         textField.text = ""
-    }
-}
-
-//MARK: - UITextFieldDelegate
-extension FindImageViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        pressedButton(checkButton)
-        
-        return true
     }
 }
