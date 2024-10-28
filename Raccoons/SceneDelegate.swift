@@ -23,11 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             raccoons: raccoonsSorted
         )
         
-        let findImageViewController = FindImageViewController()
+        let panImageViewController = PanImageViewController()
         
-        findImageViewController.raccoonDataManager = raccoonDataManager
+        panImageViewController.raccoonDataManager = raccoonDataManager
         
-        window?.rootViewController = findImageViewController
+        window?.rootViewController = panImageViewController
         window?.makeKeyAndVisible()
     }
 
