@@ -22,12 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let raccoonDataManager = RaccoonDataManager(
             raccoons: raccoonsSorted
         )
+
+        let textManager = TextManager()
         
-        let panImageViewController = PanImageViewController()
+        let licenseAgreementViewController = LicenseAgreementViewController()
+        licenseAgreementViewController.textManager = textManager
         
-        panImageViewController.raccoonDataManager = raccoonDataManager
-        
-        window?.rootViewController = panImageViewController
+        window?.rootViewController = licenseAgreementViewController
         window?.makeKeyAndVisible()
     }
 

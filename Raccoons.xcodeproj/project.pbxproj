@@ -18,8 +18,10 @@
 		2C65224A2CB15995009206D4 /* RaccoonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6522492CB15995009206D4 /* RaccoonDataManager.swift */; };
 		2C672E152CCEA035003D8A63 /* PanImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C672E142CCEA035003D8A63 /* PanImageViewController.swift */; };
 		2C72193D2CBE6A6F00E3BBED /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72193C2CBE6A6F00E3BBED /* UIView+Extensions.swift */; };
+		2CBBFE5A2CD25AAA00527903 /* TextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBFE592CD25AAA00527903 /* TextManager.swift */; };
 		2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */; };
 		2CD6A4442CB1522B00337380 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6A4432CB1522B00337380 /* CustomButton.swift */; };
+		2CDE96582CD162C9007D1FD9 /* LicenseAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE96572CD162C9007D1FD9 /* LicenseAgreementViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +38,10 @@
 		2C6522492CB15995009206D4 /* RaccoonDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonDataManager.swift; sourceTree = "<group>"; };
 		2C672E142CCEA035003D8A63 /* PanImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanImageViewController.swift; sourceTree = "<group>"; };
 		2C72193C2CBE6A6F00E3BBED /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		2CBBFE592CD25AAA00527903 /* TextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextManager.swift; sourceTree = "<group>"; };
 		2CD6A4412CB151EA00337380 /* UIStackView+addArrangesSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangesSubviews.swift"; sourceTree = "<group>"; };
 		2CD6A4432CB1522B00337380 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2CDE96572CD162C9007D1FD9 /* LicenseAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAgreementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				2C61E5D52CB1497800B9F726 /* ViewController.swift */,
 				2C47237A2CC8F26E003556BA /* FindImageViewController.swift */,
 				2C672E142CCEA035003D8A63 /* PanImageViewController.swift */,
+				2CDE96572CD162C9007D1FD9 /* LicenseAgreementViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				2C6522452CB158C8009206D4 /* RaccoonModel.swift */,
 				2C6522472CB15922009206D4 /* RaccoonManager.swift */,
 				2C6522492CB15995009206D4 /* RaccoonDataManager.swift */,
+				2CBBFE592CD25AAA00527903 /* TextManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,11 +204,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBBFE5A2CD25AAA00527903 /* TextManager.swift in Sources */,
 				2C61E5D62CB1497800B9F726 /* ViewController.swift in Sources */,
 				2C672E152CCEA035003D8A63 /* PanImageViewController.swift in Sources */,
 				2C6522482CB15922009206D4 /* RaccoonManager.swift in Sources */,
 				2C61E5D22CB1497800B9F726 /* AppDelegate.swift in Sources */,
 				2C72193D2CBE6A6F00E3BBED /* UIView+Extensions.swift in Sources */,
+				2CDE96582CD162C9007D1FD9 /* LicenseAgreementViewController.swift in Sources */,
 				2CD6A4422CB151EA00337380 /* UIStackView+addArrangesSubviews.swift in Sources */,
 				2C6522462CB158C8009206D4 /* RaccoonModel.swift in Sources */,
 				2C65224A2CB15995009206D4 /* RaccoonDataManager.swift in Sources */,
