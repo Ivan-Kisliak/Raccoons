@@ -14,6 +14,9 @@ protocol IRaccoonDataManageable {
     func getLastRaccoon() -> RaccoonModel
     func getFirstRaccoon() -> RaccoonModel
     func findRaccoon(imageName: String) -> RaccoonModel?
+    func getAllRacoons() -> [RaccoonModel]
+    func removeRaccoon(index: Int)
+    func changeMarkRaccoon(index: Int)
 }
 
 class RaccoonDataManager: IRaccoonDataManageable {
@@ -49,6 +52,18 @@ class RaccoonDataManager: IRaccoonDataManageable {
     
     func findRaccoon(imageName: String) -> RaccoonModel? {
         raccoons.first { $0.imageName == imageName }
+    }
+    
+    func getAllRacoons() -> [RaccoonModel] {
+        raccoons
+    }
+    
+    func removeRaccoon(index: Int) {
+        raccoons.remove(at: index)
+    }
+    
+    func changeMarkRaccoon(index: Int) {
+        raccoons[index].isMark.toggle()
     }
 }
 

@@ -14,15 +14,20 @@ protocol IRaccoonManageable {
 class RaccoonManager: IRaccoonManageable {
     func getRaccoons() -> [RaccoonModel] {
         [RaccoonModel(imageName: ImageName.raccoonThree.rawValue,
-                      text: Text.raccoonThree.rawValue),
+                      text: Text.raccoonThree.rawValue,
+                      isMark: false),
          RaccoonModel(imageName: ImageName.raccoonFour.rawValue,
-                      text: Text.raccoonFour.rawValue),
+                      text: Text.raccoonFour.rawValue,
+                      isMark: false),
          RaccoonModel(imageName: ImageName.raccoonOne.rawValue,
-                      text: Text.raccoonOne.rawValue),
+                      text: Text.raccoonOne.rawValue,
+                      isMark: false),
          RaccoonModel(imageName: ImageName.raccoonFive.rawValue,
-                      text: Text.raccoonFive.rawValue),
+                      text: Text.raccoonFive.rawValue,
+                      isMark: false),
          RaccoonModel(imageName: ImageName.raccoonTwo.rawValue,
-                      text: Text.raccoonTwo.rawValue)]
+                      text: Text.raccoonTwo.rawValue,
+                      isMark: false)]
     }
 }
 
