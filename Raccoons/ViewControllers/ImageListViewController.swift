@@ -11,8 +11,8 @@ class ImageListViewController: UIViewController {
    
     var raccoonDataManager: IRaccoonDataManageable?
     
-    let cellIdentifier = "cellIdentifier"
-    let tableView = UITableView()
+    private let cellIdentifier = "cellIdentifier"
+    private let tableView = UITableView()
 
 //MARK: - Life cycle
     override func viewDidLoad() {
@@ -95,7 +95,8 @@ extension ImageListViewController: UITableViewDelegate {
                 completion(true)
             }
         
-        let markAction = UIContextualAction(style: .normal, title: "Mark") { _, _, completion in
+        let markAction = UIContextualAction(
+            style: .normal, title: "Mark") { _, _, completion in
             
             self.raccoonDataManager?.changeMarkRaccoon(index: indexPath.row)
             
