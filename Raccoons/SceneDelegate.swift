@@ -15,10 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let imageListViewController = ImageListViewController()
-        imageListViewController.raccoonDataManager = buildRaccoonManager()
+        let marTableViewController = MarTableViewController()
+        marTableViewController.raccoonDataManager = buildRaccoonManager()
         
-        window?.rootViewController = imageListViewController
+        window?.rootViewController = marTableViewController
         window?.makeKeyAndVisible()
     }
     

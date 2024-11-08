@@ -15,19 +15,17 @@ class RaccoonManager: IRaccoonManageable {
     func getRaccoons() -> [RaccoonModel] {
         [RaccoonModel(imageName: ImageName.raccoonThree.rawValue,
                       text: Text.raccoonThree.rawValue,
-                      isMark: false),
+                      isMark: true),
          RaccoonModel(imageName: ImageName.raccoonFour.rawValue,
-                      text: Text.raccoonFour.rawValue,
-                      isMark: false),
+                      text: Text.raccoonFour.rawValue),
          RaccoonModel(imageName: ImageName.raccoonOne.rawValue,
                       text: Text.raccoonOne.rawValue,
-                      isMark: false),
+                      isMark: true),
          RaccoonModel(imageName: ImageName.raccoonFive.rawValue,
-                      text: Text.raccoonFive.rawValue,
-                      isMark: false),
+                      text: Text.raccoonFive.rawValue),
          RaccoonModel(imageName: ImageName.raccoonTwo.rawValue,
                       text: Text.raccoonTwo.rawValue,
-                      isMark: false)]
+                      isMark: true)]
     }
 }
 

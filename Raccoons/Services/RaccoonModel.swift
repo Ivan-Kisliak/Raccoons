@@ -10,7 +10,7 @@ import Foundation
 struct RaccoonModel {
     let imageName: String
     let text: String
-    var isMark: Bool
+    var isMark = false
 }
 
 //MARK: - Comparable

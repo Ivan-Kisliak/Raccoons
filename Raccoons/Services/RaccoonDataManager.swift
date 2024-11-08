@@ -17,6 +17,7 @@ protocol IRaccoonDataManageable {
     func getAllRacoons() -> [RaccoonModel]
     func removeRaccoon(index: Int)
     func changeMarkRaccoon(index: Int)
+    func getIsMarkRaccoon() -> [RaccoonModel]
 }
 
 class RaccoonDataManager: IRaccoonDataManageable {
@@ -64,6 +65,10 @@ class RaccoonDataManager: IRaccoonDataManageable {
     
     func changeMarkRaccoon(index: Int) {
         raccoons[index].isMark.toggle()
+    }
+    
+    func getIsMarkRaccoon() -> [RaccoonModel] {
+        raccoons.filter { $0.isMark }
     }
 }
 
