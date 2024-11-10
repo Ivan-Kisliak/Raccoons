@@ -8,10 +8,14 @@
 import UIKit
 
 class CustomRaccoonCell: UITableViewCell {
+    
+    var actionCheckMarkButton: ((UITableViewCell) -> ())?
+    
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let imageRaccoon = UIImageView()
     private let checkMarkButton = UIButton()
+    private var toogleCheckMark = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +44,7 @@ private extension CustomRaccoonCell {
         setupTitleLabel()
         setupDescriptionLabel()
         setupImageRaccoon()
+        setupCheckMarkButton()
         setupLayout()
     }
     
@@ -66,6 +71,22 @@ private extension CustomRaccoonCell {
     func setupImageRaccoon() {
         imageRaccoon.contentMode = .scaleAspectFill
         imageRaccoon.clipsToBounds = true
+    }
+    
+    func setupCheckMarkButton() {
+        checkMarkButton.addTarget(self, action: #selector(checkMarkButtonAction), for: .touchUpInside)
+    }
+}
+
+//MARK: - Actions
+private extension CustomRaccoonCell {
+    @objc
+    private func checkMarkButtonAction() {
+        toogleCheckMark.toggle()
+        let chechMark = toogleCheckMark ? "checkmark.square": "checkmark.square.fill"
+        checkMarkButton.setImage(UIImage(systemName: chechMark), for: .normal)
+        
+        actionCheckMarkButton?(self)
     }
 }
 

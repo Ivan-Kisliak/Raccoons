@@ -34,12 +34,22 @@ class MarTableViewController: UITableViewController {
         if let raccoon = raccoonDataManager?.getIsMarkRaccoon()[indexPath.row] {
             cell.configure(raccoon: raccoon)
         }
-    
+        
+        cell.actionCheckMarkButton = { cell in
+            guard let indexPath = tableView.indexPath(for: cell) else { return }
+            if let raccoon = self.raccoonDataManager?.getIsMarkRaccoon()[indexPath.row] {
+                self.raccoonDataManager?.toogleCheckMark(raccoon)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        
     }
     
 }

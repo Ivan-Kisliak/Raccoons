@@ -13,6 +13,9 @@ struct RaccoonModel {
     var isMark = false
 }
 
+//MARK: - Equatable
+extension RaccoonModel: Equatable {}
+
 //MARK: - Comparable
 extension RaccoonModel: Comparable {
     static func < (lhs: RaccoonModel, rhs: RaccoonModel) -> Bool {
