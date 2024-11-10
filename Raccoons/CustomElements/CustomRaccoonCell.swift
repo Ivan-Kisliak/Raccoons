@@ -64,7 +64,8 @@ private extension CustomRaccoonCell {
     }
     
     func setupImageRaccoon() {
-        imageRaccoon.contentMode = .scaleToFill
+        imageRaccoon.contentMode = .scaleAspectFill
+        imageRaccoon.clipsToBounds = true
     }
 }
 
