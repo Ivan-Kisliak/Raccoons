@@ -47,6 +47,18 @@ class CustomView: UIView {
     }
 }
 
+//MARK: - Actions
+private extension CustomView {
+    @objc
+    private func checkMarkButtonAction() {
+        toogleCheckMark.toggle()
+        let chechMark = toogleCheckMark ? "checkmark.square": "checkmark.square.fill"
+        checkMarkButton.setImage(UIImage(systemName: chechMark), for: .normal)
+        
+        action?()
+    }
+}
+
 //MARK: - Settings
 private extension CustomView {
     func setup() {
@@ -86,18 +98,6 @@ private extension CustomView {
     
     func setupCheckMarkButton() {
         checkMarkButton.addTarget(self, action: #selector(checkMarkButtonAction), for: .touchUpInside)
-    }
-}
-
-//MARK: - Actions
-private extension CustomView {
-    @objc
-    private func checkMarkButtonAction() {
-        toogleCheckMark.toggle()
-        let chechMark = toogleCheckMark ? "checkmark.square": "checkmark.square.fill"
-        checkMarkButton.setImage(UIImage(systemName: chechMark), for: .normal)
-        
-        action?()
     }
 }
 
